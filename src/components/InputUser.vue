@@ -1,6 +1,6 @@
 <template>
              
-          <form v-on:submit.prevent="submitForm" class="col-start-3 col-end-7 row-start-2 inline-flex justify-center">
+          <form v-on:submit="submitForm" class="col-start-3 col-end-7 row-start-2 inline-flex justify-center">
            <div class="col-start-3 col-end-4 row-start-2 justify-center flex-1 ">
                <label for="UserName px-5">UserName</label>
                <input type="text" id="Password" name="UserName" class="w-28 border-2 border-black" placeholder="Insert User" v-model="UserName">
@@ -25,7 +25,7 @@
                   <option value="Lock">Lock</option>
                 </select>
            </div>
-           <input type="submit" value="Submit" class="px-2 border-2 bg-black text-white">
+           <input type="submit" value="Submit" class="px-2 border-2 bg-black text-white w-24 h-24">
           </form>
           
 </template>
@@ -65,7 +65,7 @@ export default {
   emits: ['user-submit'],
   data() {
     return {
-      id: this.oldId,
+      id: this.OldId,
       UserName: this.OldUserName,
       Password: this.OldPassword,
       Privilege: this.OldPrivilege,
@@ -92,11 +92,13 @@ export default {
 
       if (!this.invalidUserName && !this.invalidPassword) {
         const newUserSubmitted = {
+          Id:this.id,
           UserName: this.UserName,
           Password: this.Password,
           Privilege: this.Privilege,
           Status: this.Status
         }
+        console.log(this.id)
         this.UserName = ''
         this.Password = ''
         this.Privilege = ''

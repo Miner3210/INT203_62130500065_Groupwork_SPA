@@ -5,13 +5,6 @@
       "Password": "asdsad",
       "Privilege": "Teacher",
       "Status": "Offline",
-      "id": 1
-    },
-    {
-      "UserName": "sadasd",
-      "Password": "asdsad",
-      "Privilege": "Teacher",
-      "Status": "Offline",
       "id": 2
     },
     {
@@ -19,28 +12,7 @@
       "Password": "asdsad",
       "Privilege": "Teacher",
       "Status": "Offline",
-      "id": 3
-    },
-    {
-      "UserName": "sadasd",
-      "Password": "asdsad",
-      "Privilege": "Teacher",
-      "Status": "Offline",
       "id": 4
-    },
-    {
-      "UserName": "asdasd",
-      "Password": "asdasd",
-      "Privilege": "Teacher",
-      "Status": "Offline",
-      "id": 5
-    },
-    {
-      "UserName": "dsadas",
-      "Password": "dasdasd",
-      "Privilege": "Teacher",
-      "Status": "Offline",
-      "id": 6
     },
     {
       "UserName": "Kuyrai",
@@ -57,11 +29,18 @@
       "id": 8
     },
     {
-      "UserName": "dsad",
-      "Password": "dsad",
+      "UserName": "FuckyouStupid",
+      "Password": "sadad",
+      "Privilege": "Staff",
+      "Status": "Lock",
+      "id": 10
+    },
+    {
+      "UserName": "markeiei111",
+      "Password": "eeeqwe213",
       "Privilege": "Student",
-      "Status": "Online",
-      "id": 9
+      "Status": "Offline",
+      "id": 11
     }
   ]
 }
