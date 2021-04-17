@@ -82,6 +82,7 @@ export default {
           Status: newAccount.Status
         })
       })
+      console.log("141")
       const data = await res.json()
       //spread array
       this.UserAcc = [...this.UserAcc,data]
@@ -90,7 +91,6 @@ export default {
     },
     async fetchUserAcc() {
      try {
-           console.log("kuyrai 0")
         const res = await fetch(this.url);
         const data = await res.json();
         return data;
