@@ -1,10 +1,32 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
+<div class="nav"></div>
   <router-view/>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      url: ' http://localhost:5000/UserAccount',
+      errorMessage: null,
+      UserAcc: [
+      ]
+    }
+  },
+  methods: {
+    async fetchSurveyResult() {
+      const res = await fetch(this.url)
+      const data = await res.json()
+      // parses JSON response into native JavaScript objects
+      return data
+    }
+  },
+  async created() {
+    this.UserAcc = await this.fetchSurveyResult()
+  }
+}
+</script>
 
 <style>
 #app {

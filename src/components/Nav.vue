@@ -32,7 +32,7 @@ router-link {
 }
 
 .cool-link:hover::after {
-    width: 50%;
+    width: 10%;
     transition: width .3s;
 }
 

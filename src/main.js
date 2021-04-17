@@ -7,3 +7,4 @@ import Navibar from './components/Nav.vue'
 const app = createApp(App)
 app.component('Navibar',Navibar)
 app.use(router).mount('#app')
+

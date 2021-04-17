@@ -1,0 +1,25 @@
+{
+    "UserAccount": [
+      {
+        "id": 1,
+        "name": "Inwzazaeiei",
+        "password": "helloinwza",
+        "privilege":"student",
+        "status":"Online"
+      },
+      {
+        "id": 2,
+        "name": "MahaInw",
+        "password": "helloinwza",
+        "privilege":"student",
+        "status":"Online"
+      },
+      {
+        "id": 3,
+        "name": "EiEiEiwaa",
+        "password": "helloinwza",
+        "privilege":"teacher",
+        "status":"Lock"
+      }
+    ]
+  }
