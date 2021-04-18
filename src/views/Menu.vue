@@ -21,7 +21,6 @@ export default {
   methods:{
      async fetchUserAcc() {
      try {
-           console.log("kuyrai 0")
         const res = await fetch(this.url);
         const data = await res.json();
         return data;

@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Menu from '../views/Menu.vue'
 import AddUser from '../views/AddUser.vue'
 import Change from '../views/Change.vue'
+import About from '../views/About.vue'
 const routes = [
   {
     path: '/',
@@ -23,6 +24,10 @@ const routes = [
     path:'/Change',
     name:'Change',
     component:Change
+  },{
+    path:'/About',
+    name:'About',
+    component:About
   }
 ]
 

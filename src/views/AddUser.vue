@@ -1,18 +1,14 @@
 <template>
     <div>
-
         <Navibar></Navibar>
-
         <ListC :newUserAcc="UserAcc">
-          <InputUser @user-submit="addNewSurvey"></InputUser>
+          <InputUser @user-submit="addNewAccount"></InputUser>
         </ListC>
-
     </div>
 </template>
 
 <script>
 export default {
-
   name:'AddUser',
   props: {
     oldId: {
@@ -63,13 +59,7 @@ export default {
         this.$emit('user-submit', newUserSubmitted)
       }
     },
-
-    validateName() {
-      this.invalidNameInput = this.enteredName === '' ? true : false
-      console.log(`name: ${this.invalidNameInput}`)
-    },
-    async addNewSurvey(newAccount) {
-      console.log("hello")
+    async addNewAccount(newAccount) {
       const res = await fetch(this.url, {
         method: 'POST',
         headers: {
@@ -82,12 +72,8 @@ export default {
           Status: newAccount.Status
         })
       })
-      console.log("141")
       const data = await res.json()
-      //spread array
       this.UserAcc = [...this.UserAcc,data]
-      //or add new item to the end of array
-      // this.surveyResults.push(data)
     },
     async fetchUserAcc() {
      try {
@@ -98,12 +84,9 @@ export default {
         console.log(`Could not get! ${error}`);
       }
     },
-
-  
   },
     async created() {
     this.UserAcc = await this.fetchUserAcc()
   }
-  
 }
 </script>

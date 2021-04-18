@@ -1,11 +1,9 @@
 <template>
     <div>
-
         <Navibar></Navibar>
-
         <ListC @user-change="setOldData" :newUserAcc="UserAcc" :getCheckEdit="true" >
           <InputUser v-if="Edit" @user-submit="editSubmit"  :OldUserName="OldUserName" :OldPassword="OldPassword" :OldPrivilege="OldPrivilege" :OldStatus="OldStatus" :OldId="OldId"></InputUser>
-          <InputUser v-else @user-submit="addNewSurvey"></InputUser>
+          <InputUser v-else @user-submit="addNewAccount"></InputUser>
         </ListC>
 
     </div>
@@ -32,30 +30,11 @@ export default {
     }
   },
   methods: {
-    // submitForm() {
-    //   this.invalidNameInput = this.enteredName === '' ? true : false
-    //   this.invalidRatingInput = this.rating === null ? true : false
-    //   if (!this.invalidNameInput && !this.invalidRatingInput) {
-    //     const newUserSubmitted = {
-    //       UserName: this.UserName,
-    //       Password: this.Password,
-    //       Privilege: this.Privilege,
-    //       Status: this.Status
-    //     }
-    //     this.UserName = ''
-    //     this.Password = ''
-    //     this.Privilege = ''
-    //     this.Status =''
-    //     this.$emit('user-submit', newUserSubmitted)
-    //   }
-    // },
-
     validateName() {
       this.invalidNameInput = this.enteredName === '' ? true : false
       console.log(`name: ${this.invalidNameInput}`)
     },
-    async addNewSurvey(newAccount) {
-      console.log(newAccount.UserName)
+    async addNewAccount(newAccount) {
       const res = await fetch(this.url, {
         method: 'POST',
         headers: {
@@ -69,14 +48,10 @@ export default {
         })
       })
       const data = await res.json()
-      //spread array
       this.UserAcc = [...this.UserAcc,data]
-      //or add new item to the end of array
-      // this.surveyResults.push(data)
     },
     async fetchUserAcc() {
      try {
-           console.log("kuyrai 0")
         const res = await fetch(this.url);
         const data = await res.json();
         return data;
@@ -125,6 +100,5 @@ export default {
     async created() {
     this.UserAcc = await this.fetchUserAcc()
   }
-  
 }
 </script>

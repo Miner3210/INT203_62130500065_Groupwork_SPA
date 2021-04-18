@@ -6,25 +6,6 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      url: ' http://localhost:5000/UserAccount',
-      errorMessage: null,
-      UserAcc: [
-      ]
-    }
-  },
-  methods: {
-    async fetchSurveyResult() {
-      const res = await fetch(this.url)
-      const data = await res.json()
-      // parses JSON response into native JavaScript objects
-      return data
-    }
-  },
-  async created() {
-    this.UserAcc = await this.fetchSurveyResult()
-  }
 }
 </script>
 

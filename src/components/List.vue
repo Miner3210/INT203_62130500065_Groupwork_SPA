@@ -21,7 +21,7 @@
                  <td>{{ item.Status }} </td>
                  <base-button v-if="CheckEdit" @btn-click="editUserAccount(item.id,item.UserName,item.Password,item.Privilege,item.Status)" bgcolor="bg-black" txtcolor="text-white" msg="edit"
                  class="px-2 hover:bg-white hover:text-black hover:border-black hover:shadow-md border-white border-2 "/>
-                 <base-button v-if="CheckEdit" @btn-click="deleteUserAccount($event, item.id)" bgcolor="bg-black" txtcolor="text-white" msg="Delete"
+                 <base-button v-if="CheckEdit" @btn-click="deleteUserAccount(item.id)" bgcolor="bg-black" txtcolor="text-white" msg="Delete"
                  class="px-2 hover:bg-white hover:text-black hover:border-black hover:shadow-md border-white border-2 ml-1"/>
                </tr>
                 </table>
@@ -64,7 +64,6 @@ export default {
   methods:{
      async fetchUserAcc() {
      try {
-           console.log("kuyrai 0")
         const res = await fetch(this.url);
         const data = await res.json();
         return data;
@@ -73,14 +72,12 @@ export default {
       }
     },
     editUserAccount(editId, editUserName, editPassword, editPrivilege,editStatus) {
-      // this.isEdit = passingData.isEdit
       this.isEdit = true
       this.oldId = editId
       this.oldUserName = editUserName
       this.oldPassword = editPassword
       this.oldPrivilege = editPrivilege
       this.oldStatus = editStatus
-      console.log(editId)
       const data = {
       isEdit : true,
       oldId:this.oldId,
@@ -90,12 +87,9 @@ export default {
       oldStatus:  this.oldStatus
       }
       this.$emit('user-change',data)
-      alert(
-        ` mode: ${this.isEdit}, you want to edit current data {id: ${editUserName}, name: ${editPassword}, rating: ${editPrivilege}}`
-      )
     },
-        async deleteUserAccount(passingData, id) {
-      if (confirm(`Are you sure to delete (${passingData.label})?`)) {
+        async deleteUserAccount(id) {
+      if (confirm(`Are you sure to delete ?`)) {
         const res = await fetch(`${this.url}/${id}`, {
           method: 'DELETE'
         })
@@ -103,7 +97,7 @@ export default {
           ? (this.UserAcc = this.UserAcc.filter(
               (UserAcc) => UserAcc.id !== id
             ))
-          : alert('Error to delete survey')
+          : alert('Error to delete UserAccount')
       }
     }
   },

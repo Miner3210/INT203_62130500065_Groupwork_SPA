@@ -89,7 +89,6 @@ export default {
       if(this.invalidUserName || this.invalidPassword || this.invalidPrivilege || this.invalidStatus == true){
           alert("please Insert Data")
       }
-
       if (!this.invalidUserName && !this.invalidPassword) {
         const newUserSubmitted = {
           Id:this.id,
@@ -98,7 +97,6 @@ export default {
           Privilege: this.Privilege,
           Status: this.Status
         }
-        console.log(this.id)
         this.UserName = ''
         this.Password = ''
         this.Privilege = ''
@@ -106,11 +104,6 @@ export default {
         this.$emit('user-submit', newUserSubmitted)
       }
     },
-
-    validateName() {
-      this.invalidNameInput = this.enteredName === '' ? true : false
-      console.log(`name: ${this.invalidNameInput}`)
-    }
   }
 }
 </script>
